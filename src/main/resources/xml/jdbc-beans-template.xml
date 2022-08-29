@@ -1,8 +1,16 @@
-    <bean id="dataSourceName" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="url" value="${dataSourceUrl}"/>
-        <property name="username" value="${dataSourceUserName}"/>
-        <property name="password" value="${dataSourcePassword}"/>
-        <property name="driverClassName" value="${dataSourceDriver}"/>
+
+    <bean id="hikariConfigBeanId" class="com.zaxxer.hikari.HikariConfig">
+        <property name="dataSourceClassName" value="${dataSourceDriver}" />
+        <property name="dataSourceProperties">
+            <props>
+                <prop key="url">${dataSourceUrl}</prop>
+                <prop key="user">${dataSourceUserName}</prop>
+                <prop key="password">${dataSourcePassword}</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="dataSourceName" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg ref="hikariConfigBeanId" />
     </bean>
 
     <bean id="jdbcTemplateBeanName" class="org.springframework.jdbc.core.JdbcTemplate">

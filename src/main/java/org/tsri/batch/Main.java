@@ -101,6 +101,7 @@ public class Main {
             String dataSourcePassword = dataSource.get("password");
             String dataSourceDriver = dataSource.get("driver");
             String jdbcTemplateBeanName = dataSourceName + "Jdbc";
+            String hikariConfigBeanId = dataSourceName + "_Hikari";
 
             String jdbcBean = beansTemplate
                     .replaceAll("dataSourceName", dataSourceName)
@@ -108,7 +109,8 @@ public class Main {
                     .replaceFirst("dataSourceUserName", dataSourceUserName)
                     .replaceFirst("dataSourcePassword", dataSourcePassword)
                     .replaceFirst("dataSourceDriver", dataSourceDriver)
-                    .replaceFirst("jdbcTemplateBeanName", jdbcTemplateBeanName);
+                    .replaceFirst("jdbcTemplateBeanName", jdbcTemplateBeanName)
+                    .replaceAll("hikariConfigBeanId", hikariConfigBeanId);
 
             jdbcBeans = jdbcBeans + "\n" + jdbcBean;
         }
