@@ -5,20 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jeff</groupId>
-        <artifactId>batchParent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>myself</groupId>
+        <artifactId>custom_parent</artifactId>
+        <version>1.0.0</version>
     </parent>
-    <groupId>org.tsri.batch</groupId>
+    <groupId>myself</groupId>
     <artifactId>generateJdbcBeans</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>generateJdbcBeans</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.jeff.demo</groupId>
-            <artifactId>dao</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>myself</groupId>
+            <artifactId>custom_dao</artifactId>
         </dependency>
 
     </dependencies>
