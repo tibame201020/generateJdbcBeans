@@ -1,0 +1,10 @@
+    <bean id="dataSourceName" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${dataSourceUrl}"/>
+        <property name="username" value="${dataSourceUserName}"/>
+        <property name="password" value="${dataSourcePassword}"/>
+        <property name="driverClassName" value="${dataSourceDriver}"/>
+    </bean>
+
+    <bean id="jdbcTemplateBeanName" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSourceName"/>
+    </bean>

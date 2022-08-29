@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath:dataSource.properties" ignore-unresolvable="true"/>
+    
+    <bean id="database3" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${database3.url}"/>
+        <property name="username" value="${database3.username}"/>
+        <property name="password" value="${database3.password}"/>
+        <property name="driverClassName" value="${database3.driver}"/>
+    </bean>
+
+    <bean id="database3Jdbc" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="database3"/>
+    </bean>
+
+    <bean id="database2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${database2.url}"/>
+        <property name="username" value="${database2.username}"/>
+        <property name="password" value="${database2.password}"/>
+        <property name="driverClassName" value="${database2.driver}"/>
+    </bean>
+
+    <bean id="database2Jdbc" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="database2"/>
+    </bean>
+
+    <bean id="database1" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${database1.url}"/>
+        <property name="username" value="${database1.username}"/>
+        <property name="password" value="${database1.password}"/>
+        <property name="driverClassName" value="${database1.driver}"/>
+    </bean>
+
+    <bean id="database1Jdbc" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="database1"/>
+    </bean>
+
+</beans>
+
